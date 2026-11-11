@@ -90,18 +90,7 @@ export default function ContextSection({
   return (
     <section
       ref={sectionRef}
-      onPointerMove={onMove}
-      onPointerLeave={() => show(false)}
-      onClick={(e) => {
-        // on laptop/desktop the whole section acts as the play target
-        if (
-          window.innerWidth >= 1024 &&
-          e.target.closest("[data-play-skip]") === null
-        ) {
-          openVideo();
-        }
-      }}
-      className="cuv-section-hover relative w-full overflow-hidden bg-cuv-surface px-(--cuv-section-px) py-(--cuv-section-py) font-cuv-body"
+      className="relative w-full overflow-hidden bg-cuv-surface px-(--cuv-section-px) py-(--cuv-section-py) font-cuv-body"
     >
       {/* heading */}
       <div className="mx-auto w-full max-w-[1210px] px-5 text-center md:px-8">
@@ -122,7 +111,19 @@ export default function ContextSection({
         ref={scrollRef}
         className="cuv-scroll w-full overflow-x-auto overflow-y-hidden lg:overflow-visible"
       >
-        <div className="relative mx-auto w-(--cuv-media-w)">
+        <div
+          onPointerMove={onMove}
+          onPointerLeave={() => show(false)}
+          onClick={(e) => {
+            if (
+              window.innerWidth >= 1024 &&
+              e.target.closest("[data-play-skip]") === null
+            ) {
+              openVideo();
+            }
+          }}
+          className="cuv-section-hover relative mx-auto w-(--cuv-media-w) lg:context-mask-fade-x "
+        >
           <img
             src={imageSrc}
             alt="Work sprawl: context switching, context missing and context stitching"

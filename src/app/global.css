@@ -2,7 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
-@import "tailwindcss";  
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
 
 @theme {
   /* ───────── fonts ───────── */
@@ -124,6 +128,94 @@
   --color-muted: #5b5d63;
   --color-faint: #82848a;
   --color-line: #e9eaec;
+
+  /* ── Text colors / surfaces ── */
+  --color-page: #ffffff;
+  --color-on-brand: #ffffff; /* headline + button bg */
+  --color-ink: #111111; /* button text */
+  --color-footnote: #7c7c7c; /* footnote text */
+
+  /* ── Glass borders / fills around the mockups ── */
+  --color-ring-soft: rgba(255, 255, 255, 0.4);
+  --color-ring-phone: rgba(255, 255, 255, 0.45);
+  --color-glass: rgba(255, 255, 255, 0.2);
+  --color-glass-phone: rgba(255, 255, 255, 0.15);
+
+  /* ── Font sizes (px) ── */
+  --text-footers: 64px;
+  --text-footers--line-height: 66px;
+  --text-footers-md: 48px;
+  --text-footers-md--line-height: 50px;
+  --text-footers-sm: 36px;
+  --text-footers-sm--line-height: 38px;
+  --text-ctas: 22px;
+  --text-ctas--line-height: 26px;
+  --text-notes: 18px;
+  --text-notes--line-height: 28px;
+  --text-notes-sm: 16px;
+  --text-notes-sm--line-height: 26px;
+
+  /* ── Letter spacing ── */
+  --tracking-hero: -0.05em;
+
+  /* ── Radius (px) ── */
+  --radius-banner: 32px;
+  --radius-logo-sm: 16px;
+  --radius-logo-lg: 24px;
+  --radius-btn: 8px;
+  --radius-frame: 24px;
+  --radius-frame-inner: 18px;
+  --radius-phone: 40px;
+  --radius-phone-inner: 34px;
+
+  /* ── Shadows ── */
+  --shadow-frame: 0 0 40px rgba(102, 71, 240, 0.35);
+  --shadow-phone: 0 0 40px rgba(168, 85, 247, 0.35);
+
+  /* ── Max widths (px) ── */
+  --container-banner: 1400px;
+  --container-frame: 1200px;
+  --container-headline-xs: 320px;
+  --container-headline-sm: 560px;
+  --container-headline-md: 640px;
+  --container-headline-lg: 860px;
+
+  /* ── Spacing / sizes (px) ── */
+  --spacing-logo-sm: 64px;
+  --spacing-logo-md: 84px;
+  --spacing-logo-lg: 100px;
+
+  --spacing-gutter-sm: 16px;
+  --spacing-gutter-md: 24px;
+
+  --spacing-top-sm: 24px;
+  --spacing-top-md: 36px;
+  --spacing-top-lg: 48px;
+
+  --spacing-title-sm: 24px; /* gap logo → headline */
+  --spacing-title-md: 32px;
+
+  --spacing-ctas-sm: 16px; /* gap headline → button */
+  --spacing-ctas-lg: 20px;
+  --spacing-btn-x: 20px;
+  --spacing-btn-y: 10px;
+
+  --spacing-mock-gap-sm: 40px; /* gap button → mockups */
+  --spacing-mock-gap-lg: 48px;
+  --spacing-mock-sm: 340px; /* visible (cropped) mockup height */
+  --spacing-mock-md: 340px;
+  --spacing-mock-lg: 430px;
+
+  --spacing-frame-width: 90%;
+  --spacing-frame-pad: 6px;
+  --spacing-phone: 300px;
+  --spacing-phone-pad: 5px;
+  --spacing-phone-x: 44px; /* phone overlaps desktop frame on the right */
+  --spacing-phone-y: 90px;
+  --spacing-fade: 90px;
+
+  --spacing-note-x: 160px;
+  --spacing-note-y: 24px;
 }
 
 @theme static {
@@ -261,7 +353,7 @@
   --cu-ls-label: 0.08em;
   --cu-ls-tight: -0.02em;
 
-  /* COntextSection */
+  /* ContextSection */
 
   /* colors */
   --cuv-surface: #ffffff;
@@ -334,6 +426,185 @@
   --sa-mask-width: 44%; /* tune so the mask covers the photo mask */
   --sa-mask-top: 30%;
   --sa-mask-left: 49.2%;
+
+  /* colors */
+  --roi-bg: #ffffff;
+  --roi-heading: #222222;
+  --roi-heading-muted: #6b6b6b;
+  --roi-subtitle: #808080;
+  --roi-label: #6d4de0;
+  --roi-value: #000000;
+  --roi-desc: #666666;
+  --roi-divider: #ececec;
+  --roi-link: #0a8cff;
+  --roi-btn-bg: #222222;
+  --roi-btn-text: #ffffff;
+
+  /* fonts */
+  --roi-font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --roi-font-body: "Inter", system-ui, sans-serif;
+  --roi-font-mono:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* type scale (mobile) */
+  --roi-fs-heading: 34px;
+  --roi-lh-heading: 42px;
+  --roi-fs-subtitle: 16px;
+  --roi-lh-subtitle: 22px;
+  --roi-fs-btn: 20px;
+  --roi-fs-label: 12px;
+  --roi-fs-value: 30px;
+  --roi-fs-desc: 13px;
+  --roi-lh-desc: 18px;
+  --roi-fs-note: 13px;
+  --roi-ls-heading: -0.045em;
+
+  /* spacing / sizing (mobile) */
+  --roi-max-w: 1080px;
+  --roi-pad-x: 20px;
+  --roi-pad-y: 40px;
+  --roi-subtitle-max-w: 260px;
+  --roi-btn-h: 50px;
+  --roi-btn-px: 20px;
+  --roi-btn-radius: 10px;
+  --roi-card-pad: 20px;
+  --roi-card-min-h: auto;
+  --roi-gap-head: 24px;
+  --roi-gap-btn: 24px;
+  --roi-gap-value: 10px;
+  --roi-gap-desc: 14px;
+
+  /* colors */
+  --loved-bg: #ffffff;
+  --loved-heading: #222222;
+  --loved-text: #ffffff;
+  --loved-card-bg: #111111;
+  --loved-play-bg: rgba(255, 255, 255, 0.92);
+  --loved-play-icon: #222222;
+  --loved-overlay: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.55) 22%,
+    rgba(255, 255, 255, 0) 52%
+  );
+
+  /* fonts */
+  --loved-font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --loved-font-body: "Inter", system-ui, sans-serif;
+
+  /* type scale */
+  --loved-fs-heading: 52px;
+  --loved-lh-heading: 60px;
+  --loved-ls-heading: -0.05em;
+  --loved-fs-quote: 18px;
+  --loved-lh-quote: 24px;
+  --loved-fs-person: 18px;
+  --loved-lh-person: 25px;
+
+  /* layout */
+  --loved-max-w: 1080px;
+  --loved-pad-x: 20px;
+  --loved-pad-y: 80px;
+  --loved-badge-w: 410px;
+  --loved-gap-head: 50px;
+  --loved-gap-cards: 20px;
+  --loved-card-ratio: 346 / 613;
+  --loved-card-radius: 24px;
+  --loved-card-pad: 24px;
+  --loved-card-pad-bottom: 28px;
+  --loved-quote-gap: 22px;
+  --loved-logo-h: 28px;
+  --loved-logo-max-w: 120px;
+  --loved-play-size: 50px;
+  --loved-play-size-w: 80px;
+  --loved-play-icon-size: 24px;
+  --loved-ease: 200ms ease;
+
+  /* colors */
+  --ent-bg: #ffffff;
+  --ent-heading: #222222;
+  --ent-muted: #808080;
+  --ent-subtitle: #8c8c8c;
+  --ent-label: #666666;
+  --ent-icon: #666666;
+  --ent-line: #ececec;
+  --ent-vline: #e7e7e7;
+  --ent-sparkle: #ececec;
+  --ent-vline-fade: linear-gradient(
+    to bottom,
+    rgba(231, 231, 231, 0),
+    #e7e7e7 18%,
+    #e7e7e7 82%,
+    rgba(231, 231, 231, 0)
+  );
+  --ent-hline-fade: linear-gradient(
+    to right,
+    rgba(236, 236, 236, 0),
+    #ececec 14%,
+    #ececec 86%,
+    rgba(236, 236, 236, 0)
+  );
+
+  /* fonts */
+  --ent-font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --ent-font-body: "Inter", system-ui, sans-serif;
+  --ent-font-mono:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* type scale (mobile) */
+  --ent-fs-heading: 26px;
+  --ent-lh-heading: 34px;
+  --ent-ls-heading: -0.03em;
+  --ent-fs-subtitle: 20px;
+  --ent-lh-subtitle: 35px;
+  --ent-fs-sup: 12px;
+  --ent-fs-mono: 12px;
+  --ent-ls-mono: 0.05em;
+
+  /* layout (mobile) */
+  --ent-max-w: 1080px;
+  --ent-pad-x: 20px;
+  --ent-pad-y: 60px;
+  --ent-gap-sub: 6px;
+  --ent-gap-support: 20px;
+  --ent-gap-line: 25px;
+  --ent-gap-grid: 20px;
+  --ent-support-gap: 8px;
+  --ent-globe-size: 18px;
+  --ent-card-min-h: 172px;
+  --ent-card-gap: 34px;
+  --ent-img-h: 84px;
+  --ent-img-max-w: 120px;
+  --ent-sparkle-size: 18px;
+
+  /* desktop-only */
+  --ent-row1-h: 157px;
+  --ent-head-pb: 22px;
+  --ent-cell-px: 8px;
+  --ent-label-pt: 14px;
+  --ent-support-pt: 20px;
+  --ent-col-w: 97px;
+
+  --ck-white: #ffffff;
+  --ck-ink: #1f2023; /* headings */
+  --ck-btn: #1f1f1f; /* dark button */
+  --ck-purple: #5c3ff5; /* eyebrow text */
+  --ck-dot-on: #7c0ef0; /* filled dots */
+  --ck-dot-off: #ebebef; /* empty dots */
+  --ck-stat: #292d34; /* 85% / 3M+ */
+  --ck-muted: #7d828f; /* labels + caption */
+  --ck-line: #ececf0; /* hairlines */
+  --ck-node: #dcdce1; /* small corner dots */
+
+  --ck-font-head: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --ck-font-body: "Inter", system-ui, sans-serif;
+  --ck-font-mono:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --ck-dot: 6px;
+  --ck-dot-gap: 4px;
+  --ck-fade-x: 12%;
+  --ck-fade-y: 8%;
 }
 
 .aisol {
@@ -375,7 +646,28 @@
     --cuv-btn-h: 50px;
     --cuv-btn-mt: 32px;
 
-    --fade-x: 100px;
+    --fade-x: 200px;
+    --fade-x-context: 150px;
+
+    --roi-fs-heading: 48px;
+    --roi-lh-heading: 60px;
+    --roi-fs-subtitle: 24px;
+    --roi-lh-subtitle: 30px;
+    --roi-fs-value: 36px;
+    --roi-pad-x: 20px;
+    --roi-subtitle-max-w: 640px;
+    --roi-btn-h: 50px;
+    --roi-gap-btn: 28px;
+    --roi-gap-value: 12px;
+
+    --ent-fs-heading: 32px;
+    --ent-lh-heading: 40px;
+    --ent-lh-subtitle: 28px;
+    --ent-pad-x: 40px;
+    --ent-gap-sub: 16px;
+    --ent-gap-support: 22px;
+    --ent-gap-grid: 26px;
+    --ent-card-min-h: 148px;
   }
 }
 
@@ -393,9 +685,25 @@
     --cuv-btn-px: 20px;
     --cuv-btn-font: 16px;
 
-    --fade-y: 63px;
+    --fade-y: 100px;
 
     --sa-title-size: 64px;
+
+    --roi-pad-y: 60px;
+    --roi-subtitle-max-w: 900px;
+    --roi-card-min-h: 260px;
+    --roi-card-pad: 20px;
+    --roi-lh-desc: 18px;
+
+    --ent-pad-x: 20px;
+    --ent-gap-sub: 24px;
+    --ent-card-min-h: 0px;
+    /* columns shrink from 97px to 72px as the viewport narrows to 1024px */
+    --ent-col-w: clamp(72px, calc(72px + (100vw - 1024px) * 0.26), 97px);
+
+    --ck-dot: 8px;
+    --ck-dot-gap: 6px;
+    --ck-fade-y: 20%;
   }
 }
 
@@ -594,37 +902,60 @@ html {
 }
 
 /* Tailwind has no mask-with-calc utility, so these two are plain CSS */
-@utility mask-fade-x {
+
+
+@utility context-mask-fade-x {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    #000 var(--fade-x),
-    #000 calc(100% - var(--fade-x)),
+    #000 var(--fade-x-context),
+    #000 calc(100% - var(--fade-x-context)),
     transparent
   );
   mask-image: linear-gradient(
     to right,
     transparent,
-    #000 var(--fade-x),
-    #000 calc(100% - var(--fade-x)),
+    #000 var(--fade-x-context),
+    #000 calc(100% - var(--fade-x-context)),
     transparent
   );
 }
-@utility mask-fade-y {
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    #000 var(--fade-y),
-    #000 calc(100% - var(--fade-y)),
-    transparent
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    #000 var(--fade-y),
-    #000 calc(100% - var(--fade-y)),
-    transparent
-  );
+
+@utility mask-fade-xy {
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade-x),
+      #000 calc(100% - var(--fade-x)),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 var(--fade-y),
+      #000 calc(100% - var(--fade-y)),
+      transparent
+    );
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade-x),
+      #000 calc(100% - var(--fade-x)),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 var(--fade-y),
+      #000 calc(100% - var(--fade-y)),
+      transparent
+    );
+
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
 }
 
 .sa-section {
@@ -667,7 +998,6 @@ html {
   background: var(--sa-btn-light-bg);
   color: var(--sa-btn-light-text);
 }
-
 
 .sa-card {
   max-width: var(--sa-card-width);
@@ -809,8 +1139,241 @@ html {
   white-space: nowrap;
 }
 
+.roi-notch::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -5px;
+  width: 9px;
+  height: 5px;
+  background: var(--roi-bg);
+  border-bottom: 1px solid var(--roi-divider);
+  border-radius: 0 0 9px 9px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sa-mask {
     will-change: auto;
   }
+}
+
+.ent-card {
+  position: relative;
+}
+.ent-card::before,
+.ent-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  display: none;
+}
+
+/* mobile: 2x2 cross */
+@media (max-width: 767px) {
+  .ent-card:nth-child(even)::before {
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: var(--ent-vline-fade);
+  }
+  .ent-card:nth-child(-n + 2)::after {
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--ent-hline-fade);
+  }
+}
+
+/* tablet: 4 columns with notches on the bottom rule */
+@media (min-width: 768px) {
+  .ent-card:not(:first-child)::before {
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: var(--ent-vline-fade);
+  }
+  .ent-card:not(:first-child)::after {
+    display: block;
+    left: -4px;
+    bottom: -1px;
+    width: 9px;
+    height: 5px;
+    background: var(--ent-vline);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  .ent-grid::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    bottom: 0;
+    height: 1px;
+    background: var(--ent-hline-fade);
+    pointer-events: none;
+  }
+}
+
+/* desktop: rule sits between logo row and label row */
+@media (min-width: 1024px) {
+  .ent-card:not(:first-child)::before {
+    bottom: auto;
+    height: var(--ent-row1-h);
+  }
+  .ent-card:not(:first-child)::after {
+    bottom: auto;
+    top: calc(var(--ent-row1-h) - 4px);
+  }
+  .ent-grid::after {
+    display: none;
+  }
+}
+
+@utility hero-bg {
+  background: radial-gradient(
+    ellipse 132% 74% at 96% 1%,
+    #fc6d2d 23%,
+    #f73699 57%,
+    #6647f0 95%,
+    #0b88fd 115%
+  );
+  transform: rotate(4deg) scale(1.5);
+}
+
+/* ── Soft fade at the bottom of the cropped mockups ── */
+@utility fade-bottom {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(11, 136, 253, 0.5)
+  );
+}
+
+/* ── Button hover ── */
+@utility cta-hover {
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+
+.ck-eyebrow {
+  font-family: var(--ck-font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ck-purple);
+}
+
+.ck-heading {
+  font-family: var(--ck-font-head);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  color: var(--ck-ink);
+}
+
+.ck-stat-num {
+  font-family: var(--ck-font-head);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ck-stat);
+}
+
+.ck-stat-label {
+  font-family: var(--ck-font-body);
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ck-muted);
+}
+
+.ck-caption {
+  font-family: var(--ck-font-mono);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ck-muted);
+}
+
+@media (min-width: 1024px) {
+  .ck-eyebrow {
+    font-size: 16px;
+    letter-spacing: 0.12em;
+  }
+  .ck-heading {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+
+/* ---------- button ---------- */
+.ck-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: var(--ck-btn);
+  color: var(--ck-white);
+  font-family: var(--ck-font-body);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background-color 200ms ease;
+}
+.ck-btn:hover {
+  background: #000000;
+}
+
+/* ---------- lines / nodes ---------- */
+.ck-hair-x {
+  background: linear-gradient(to right, transparent, var(--ck-line) 12%, var(--ck-line) 88%, transparent);
+}
+
+.ck-node {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--ck-node);
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- badge field (edges fade out) ---------- */
+.ck-fade {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 var(--ck-fade-x), #000 calc(100% - var(--ck-fade-x)), transparent),
+    linear-gradient(to bottom, transparent, #000 var(--ck-fade-y), #000 calc(100% - var(--ck-fade-y)), transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 var(--ck-fade-x), #000 calc(100% - var(--ck-fade-x)), transparent),
+    linear-gradient(to bottom, transparent, #000 var(--ck-fade-y), #000 calc(100% - var(--ck-fade-y)), transparent);
+  mask-composite: intersect;
+}
+
+/* ---------- dot matrix (25 x 20) ---------- */
+.ck-dots {
+  display: grid;
+  grid-template-columns: repeat(25, var(--ck-dot));
+  gap: var(--ck-dot-gap);
+}
+.ck-dot {
+  width: var(--ck-dot);
+  height: var(--ck-dot);
+  border-radius: 9999px;
+  background: var(--ck-dot-off);
+}
+.ck-dot.is-on {
+  background: var(--ck-dot-on);
 }

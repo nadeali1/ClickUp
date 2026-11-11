@@ -16,19 +16,20 @@ export default function SuperAgentHero() {
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 1024px)");
     let raf = 0;
+    let current = null; // smoothed dy
 
-    const update = () => {
+    const tick = () => {
       raf = 0;
 
       const head = headRef.current;
       const fig = figRef.current;
       const mask = maskRef.current;
-      const sil = silRef.current;
-      if (!head || !fig || !mask || !sil) return;
+      if (!head || !fig || !mask) return;
 
       if (!desktop.matches) {
+        current = null;
         mask.style.transform = "";
-        sil.style.opacity = "";
+
         setLanded(false);
         return;
       }
@@ -41,28 +42,31 @@ export default function SuperAgentHero() {
         mask.offsetHeight / 2;
 
       const startY =
-        head.getBoundingClientRect().bottom + 16 + mask.offsetHeight / 1;
+        head.getBoundingClientRect().bottom + 16 + mask.offsetHeight;
 
       const pos = Math.min(eyeY, Math.max(startY, vh * 0.5));
-      const dy = pos - eyeY;
+      const targetDy = pos - eyeY;
+
+      if (current === null) current = targetDy;
+      current += (targetDy - current) * 0.1;
+      if (Math.abs(targetDy - current) < 0.1) current = targetDy;
 
       const range = Math.max(eyeY - startY, 1);
-      const t = clamp(-dy / range);
+      const t = clamp(-current / range);
 
       const scale = 1 + 0.5 * t;
-      mask.style.transform = `translate3d(-50%, ${dy}px, 0) scale(${scale})`;
+      mask.style.transform = `translate3d(-50%, ${current}px, 0) scale(${scale})`;
 
-      sil.style.opacity = t / 0.5 ? "1" : "0";
-      setLanded(t < 0.01);
+      setLanded(t < 0.01 && current === targetDy);
+
+      if (current !== targetDy) raf = requestAnimationFrame(tick);
     };
 
     const onScroll = () => {
-      if (!raf) {
-        raf = requestAnimationFrame(update);
-      }
+      if (!raf) raf = requestAnimationFrame(tick);
     };
 
-    update();
+    tick();
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -126,13 +130,29 @@ export default function SuperAgentHero() {
               className="block w-full"
             />
 
-            <div ref={silRef} className="sa-silhouette absolute inset-0" />
+            {/* <div
+              ref={silRef}
+              className="sa-silhouette absolute inset-0"
+              style={{
+                opacity: landed ? 0 : 1,
+                transition: "opacity 200ms ease-in",
+                transitionDelay: landed ? "ms" : "0ms",
+              }}
+            /> */}
+            <div
+              ref={silRef}
+              className="sa-silhouette absolute inset-0"
+              style={{
+                opacity: landed ? 0 : 1,
+                transition: "opacity 800ms ease-in-out",
+              }}
+            />
 
             <img
               ref={maskRef}
               src="/images/super-agent-mask.webp"
               alt=""
-              className="sa-mask absolute"
+              className="sa-mask absolute "
             />
           </div>
 

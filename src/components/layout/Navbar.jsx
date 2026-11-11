@@ -730,7 +730,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
+          
       {mobileOpen && (
         <div className="fixed inset-0 z-50 flex flex-col bg-[var(--cu-bg)] lg:hidden">
           <div className="flex h-[var(--cu-mobile-header-h)] shrink-0 items-center justify-between border-b border-[color:var(--cu-line)] px-[var(--cu-mobile-pad)]">
