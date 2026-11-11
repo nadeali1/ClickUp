@@ -29,7 +29,7 @@ export default function SuperAgentHero() {
       if (!desktop.matches) {
         current = null;
         mask.style.transform = "";
-        
+
         setLanded(false);
         return;
       }
@@ -48,7 +48,7 @@ export default function SuperAgentHero() {
       const targetDy = pos - eyeY;
 
       if (current === null) current = targetDy;
-      current += (targetDy - current) * 0.1; 
+      current += (targetDy - current) * 0.1;
       if (Math.abs(targetDy - current) < 0.1) current = targetDy;
 
       const range = Math.max(eyeY - startY, 1);
@@ -57,10 +57,8 @@ export default function SuperAgentHero() {
       const scale = 1 + 0.5 * t;
       mask.style.transform = `translate3d(-50%, ${current}px, 0) scale(${scale})`;
 
-      
       setLanded(t < 0.01 && current === targetDy);
 
-      
       if (current !== targetDy) raf = requestAnimationFrame(tick);
     };
 
@@ -132,14 +130,21 @@ export default function SuperAgentHero() {
               className="block w-full"
             />
 
+            {/* <div
+              ref={silRef}
+              className="sa-silhouette absolute inset-0"
+              style={{
+                opacity: landed ? 0 : 1,
+                transition: "opacity 200ms ease-in",
+                transitionDelay: landed ? "ms" : "0ms",
+              }}
+            /> */}
             <div
               ref={silRef}
               className="sa-silhouette absolute inset-0"
               style={{
                 opacity: landed ? 0 : 1,
-                transition: landed
-                  ? "opacity 100ms ease-in"
-                  : "opacity 100ms ease-in",
+                transition: "opacity 800ms ease-in-out",
               }}
             />
 
