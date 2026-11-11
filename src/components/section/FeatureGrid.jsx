@@ -155,7 +155,7 @@ export default function FeatureGrid() {
       </header>
 
       <div className="mask-fade-x mx-auto mt-4 max-w-grid-max overflow-hidden">
-        <div className="flex justify-center">
+        <div className="flex justify-center cursor-pointer">
           <div className="mask-fade-y grid shrink-0 grid-cols-[repeat(10,var(--cw))] grid-rows-[calc(var(--ch)/2)_repeat(6,var(--ch))_calc(var(--ch)/2)] border-b border-r border-line [--ch:var(--spacing-cell-h)] [--cw:var(--spacing-cell-w)] lg:[--ch:var(--spacing-cell-h-lg)] lg:[--cw:var(--spacing-cell-w-lg)]">
             {Array.from({ length: 10 }, (_, i) => (
               <Empty key={`t${i}`} col={i + 1} row={1} />
